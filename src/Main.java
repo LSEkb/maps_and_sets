@@ -27,7 +27,7 @@ public class Main {
     }
 
     public static void printEvenNumbersOfList(List<Integer> numbers) {
-        Set<Integer> evenNumbers = new HashSet<>();
+        Set<Integer> evenNumbers = new TreeSet<>();
         for (Integer number : numbers) {
             if (number % 2 == 0) {
                 evenNumbers.add(number);
