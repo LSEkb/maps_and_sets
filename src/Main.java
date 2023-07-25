@@ -15,6 +15,8 @@ public class Main {
         printUniqueWordsOfList(text);
         printCountRepeatedWordsOfList(strings);
         printCountRepeatedWordsOfList(text);
+        counterWords(strings);
+        counterWords(text);
     }
 
     public static void printOddNumbersOfList(List<Integer> numbers) {
@@ -44,12 +46,27 @@ public class Main {
 
     public static void printCountRepeatedWordsOfList(List<String> words) {
         Map<String, Integer> countRepeats = new TreeMap<>();
-                System.out.println("Количество повторов уникальных слов (в соответствии с алфавитным порядком):");
+        System.out.println("Количество повторов уникальных слов (в соответствии с алфавитным порядком):");
         for (String word : words) {
             countRepeats.put(word, Collections.frequency(words, word));
         }
-            for (Integer key : countRepeats.values()) {
-                System.out.println(key);
-            }
+        for (Integer key : countRepeats.values()) {
+            System.out.println(key);
         }
     }
+
+    public static void counterWords(List<String> words) {
+        Set<String> uniqWords = new HashSet<>(words);
+        Map<String, Integer> countRepeats = new TreeMap<>();
+        for (String uniqWord : uniqWords) {
+            int key = 0;
+            for (String word : words) {
+                if (word.equals(uniqWord)) {
+                    ++key;
+                    countRepeats.put(uniqWord, key);
+                }
+            }
+        }
+        System.out.println(countRepeats);
+    }
+}
