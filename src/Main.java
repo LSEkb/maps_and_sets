@@ -59,11 +59,11 @@ public class Main {
         Set<String> uniqWords = new HashSet<>(words);
         Map<String, Integer> countRepeats = new TreeMap<>();
         for (String uniqWord : uniqWords) {
-            int key = 0;
+            int value = 0;
             for (String word : words) {
                 if (word.equals(uniqWord)) {
-                    ++key;
-                    countRepeats.put(uniqWord, key);
+                    value++;
+                    countRepeats.put(uniqWord, value);
                 }
             }
         }
